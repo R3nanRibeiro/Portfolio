@@ -90,7 +90,7 @@ export const TRAJETORIA: Etapa[] = [
     atual: false,
   },
   {
-    quando: 'A partir de 04/2025',
+    quando: '04/2025 a 08/2025',
     titulo: 'Operador Jr',
     empresa: 'Fresnomaq Indústria de Máquinas S/A (WAP)',
     descricao:
@@ -98,7 +98,7 @@ export const TRAJETORIA: Etapa[] = [
     atual: false,
   },
   {
-    quando: 'Em andamento',
+    quando: 'Desde 08/2025',
     titulo: 'Estagiário de desenvolvimento',
     empresa: 'Forvia',
     descricao: 'Desenvolvimento de software com C# e Angular.',
