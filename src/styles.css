@@ -1,0 +1,184 @@
+/* Identidade visual: azul e roxo de tecnologia sobre fundo azul-marinho profundo (escuro) ou lavanda clara (claro). */
+:root {
+  --bg: #f4f5ff;
+  --surface: #ffffff;
+  --surface-2: #eceeff;
+  --line: #d9dcf3;
+  --fg: #12142b;
+  --muted: #555c86;
+  --blue: #3d63f5;
+  --violet: #7c3aed;
+  --on-grad: #ffffff;
+  --grad: linear-gradient(115deg, var(--blue), var(--violet));
+  --blob-a: rgb(61 99 245 / 0.22);
+  --blob-b: rgb(124 58 237 / 0.2);
+  --shadow: 0 1px 2px rgb(20 20 60 / 0.06), 0 16px 36px -18px rgb(60 60 140 / 0.35);
+  --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0a0c18;
+    --surface: #11142a;
+    --surface-2: #171b38;
+    --line: #262b52;
+    --fg: #eef0ff;
+    --muted: #9aa1cc;
+    --blue: #5b86ff;
+    --violet: #9b6bff;
+    --on-grad: #0a0c18;
+    --blob-a: rgb(91 134 255 / 0.2);
+    --blob-b: rgb(155 107 255 / 0.18);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -20px rgb(0 0 0 / 0.7);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0a0c18;
+  --surface: #11142a;
+  --surface-2: #171b38;
+  --line: #262b52;
+  --fg: #eef0ff;
+  --muted: #9aa1cc;
+  --blue: #5b86ff;
+  --violet: #9b6bff;
+  --on-grad: #0a0c18;
+  --blob-a: rgb(91 134 255 / 0.2);
+  --blob-b: rgb(155 107 255 / 0.18);
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 18px 40px -20px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.6;
+  padding-block: 16px 48px;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Faixa que cobre a área segura do topo, para o conteúdo não aparecer por baixo da barra do aparelho. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  z-index: 40;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.prose {
+  margin: 0 0 1em;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.prose:last-child {
+  margin-bottom: 0;
+}
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.chip.on {
+  background: var(--grad);
+  color: var(--on-grad);
+  border-color: transparent;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+
+.btn.primary {
+  background: var(--grad);
+  color: var(--on-grad);
+  border-color: transparent;
+}
+
+@media (max-width: 520px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
